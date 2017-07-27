@@ -2,14 +2,14 @@
 
 ## Objectives
 
-- Ability to create a data access layer or DAL that supports communication with mysql.
-- Effective use of environment variables to:
+- Create a MySQL data access layer or DAL.
+- Effective use of environment variables:
   - Determine which "DAL" (CouchDB or MySQL) the api "talks" to.
-  - Hold the values related to connecting to mysql, such as, ip address, database name, user name and password.
-- Ability to create a MySQL database including tables, views, data, and foreign key relationships.
-- Ability to create SELECT, INSERT, UPDATE, and DELETE queries.
-- Ability to aggregate row data using a SELECT statement with COUNT(), MIN(), MAX(), AVG(), and GROUP BY.  
-- Ability to a sql script file to create the database, tables, views, foreign keys and data.  
+  - Hold the values related to connecting to mysql.
+- Create a MySQL database and tables using MySQL workbench.
+- Utilize data manipulation language statements such as SELECT, INSERT, UPDATE, and DELETE queries.
+- Perform row aggregation using COUNT(), MIN(), MAX(), AVG(), and GROUP BY.  
+- Utilize data definition language statements in the form of a sql script file to create the database, tables, views, foreign keys and data.  
 - Provide developer documentation to minimize on-boarding friction including instructions on loading a mysql database setup script.  
 
 ## Getting Started
@@ -28,7 +28,7 @@ Refer to the following resources and examples for assistance:
  - [MySQL Docs](https://dev.mysql.com/doc/refman/5.7/en/)
  - [HTTP Status Codes](http://www.restapitutorial.com/httpstatuscodes.html)
  - [Scripting the database and data](http://mysql.how2js.com/9-sql-intro/1)
- - [Example script file]()
+ - [Example script file](https://github.com/jrs-innovation-center/mysql-camp-student/blob/master/sql-scripts/rockstar-database-and-data.sql)
  - [Executing SQL Statements from a Text File](https://dev.mysql.com/doc/refman/5.7/en/mysql-batch-commands.html)
 
 ## Steps
@@ -45,23 +45,21 @@ When you have completed the exam, push your changes to the `art-mysql-exam` bran
 
   - `painting` - used to track all the paintings.  
 
-- Add data into the table.  
+- Add data into the table.  Use an integer for your primary key values.
 
 ### Step 2 - Environment variables
 
-- Use an environment variable to control which database platform (CouchDB or MySQL) the api "talks" to.  Provide the ability to switch database platforms when the api starts.  Ex:  `DAL=dal-sql node app.js`
+- Use an environment variable to control which DAL (CouchDB or MySQL) the api code within **app.js** "talks" to.  Provide the ability to switch database platforms when the api starts.  Ex:  `DAL=dal-sql node app.js`
 
-- Use environment variables to manage connecting to mysql including ip address, database name, user name and password.
+- Use environment variables to manage the values used when creating a connection to mysql including IP address, database name, user name and password.
 
-- Modify your `npm start` script to default to the new sql dal.
+- Modify your `npm start` script to default to the new sql DAL.
 
 ### Step 3 - Create a mysql dal
 
-Update the code defined in your `art-api-exam` repository. Send data back and forth to a mysql database instead of the CouchDB database. Create a **dal-sql.js** file used to interact with the mysql database named **art**.
+- Update the code defined in your `art-api-exam` repository's `art-mysql-exam` branch. Create a **dal-sql.js** file used to interact with the mysql database named **art**.
 
-- Ensure the api utilizes the same JSON schema for the mysql database as the CouchDB database.
-
-  > When calling the API endpoints from POSTman, the JSON key names should remain the same.  You should still display  `_id`, `_rev` and `type` keys in your responses, for example.  **YOUR PRIMARY KEY VALUES WILL LOOK MUCH DIFFERENT**.  In a my sql database, the primary key values are an integer, while in a CouchDB database, the primary key values are a string.  
+- When calling the API endpoints from POSTman, the JSON key names should remain the same.  You should still display  `_id`, `_rev` and `type` keys in your `GET` responses, for example.  **YOUR PRIMARY KEY VALUES WILL LOOK MUCH DIFFERENT**.  In a my sql database, the primary key values are an integer, while in a CouchDB database, the primary key values are a string.  
 
   As an example, to retrieve a painting using the API, you would perform a `GET /art/paintings/:id`.  Here's an example of the path that contains the primary key value for a painting with a primary key value of 5 from a mysql database:
 
