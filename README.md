@@ -8,7 +8,7 @@
   - Hold the values related to connecting to mysql.
 - Create a MySQL database and tables using MySQL workbench.
 - Utilize data manipulation language statements such as SELECT, INSERT, UPDATE, and DELETE queries.
-- Perform row aggregation using COUNT(), MIN(), MAX(), AVG(), and GROUP BY.  
+- Perform row aggregation.  
 - Utilize data definition language statements in the form of a sql script file to create the database, tables, views, foreign keys and data.  
 - Provide developer documentation to minimize on-boarding friction including instructions on loading a mysql database setup script.  
 
